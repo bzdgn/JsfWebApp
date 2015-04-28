@@ -1,0 +1,48 @@
+0) Based on the tutorial;
+*************************
+http://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/
+
+1) Create a webapp with maven webapp archetype;
+***********************************************
+	mvn archetype:generate -DgroupId=com.levent -DartifactId=JsfWebApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+2) Commit project to git;
+*************************
+	echo # JsfWebApp >> README.md
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git remote add origin git@github.com:bzdgn/JsfWebApp.git
+	git push -u origin master
+
+	[For error: "error: src refspec mater does not match any"]
+
+	git init
+	git add .
+	git commit -m 'message'
+	git push -u origin master
+
+	REF: http://stackoverflow.com/questions/4181861/src-refspec-master-does-not-match-any-when-pushing-commits-in-git
+	
+3) Import project to Eclipse (or any other IDE?) as an 'existing maven project';
+********************************************************************************
+
+4) Update POM file, insert Dependencies, Properties for Dependency Versions and Build Parameters;
+*************************************************************************************************
+
+5) Run: 'mvn clean install' under Project Directory, Verify 'Build Success';
+****************************************************************************
+
+6) For ContextLoaderListener error below;
+*****************************************
+	SEVERE: Error configuring application listener of class org.springframework.web.context.ContextLoaderListener
+	
+	Right Click on project -> Properties -> Deployment Assembly -> Add 'Maven Dependencies'
+	
+	REF: http://stackoverflow.com/a/25865781/3128926
+
+7) Check out;
+*************
+	[For Tomcat port: 6666]
+	http://localhost:6666/JsfWebApp/
+	http://localhost:6666/JsfWebApp/Levo
